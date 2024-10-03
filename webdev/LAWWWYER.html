@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    let lastScrollTop = 0;
+    window.addEventListener("scroll", function() {
+        let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+        if (currentScroll > lastScrollTop) {
+            // Scrolling down
+            document.querySelector('.navbar').classList.add('hidden');
+        } else {
+            // Scrolling up
+            document.querySelector('.navbar').classList.remove('hidden');
+        }
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Avoid negative values
+    });
+
+    function performSearch() {
+    const searchQuery = document.getElementById('navbar-search').value;
+    alert('Search for: ' + searchQuery); // Placeholder action, replace with actual search logic
+}
+window.addEventListener('scroll', function() {
+    const resultsContainer = document.getElementById('search-results');
+    if (resultsContainer.style.display === 'block') {
+        resultsContainer.style.display = 'none';
+    }
+});
+document.addEventListener('DOMContentLoaded', function() {
+    const input = document.getElementById('navbar-search');
+    const resultsContainer = document.getElementById('search-results');
+
+    input.addEventListener('input', function() {
+        const searchQuery = this.value.toLowerCase();
+        resultsContainer.innerHTML = ''; // Clear previous results
+
+        if (searchQuery.length > 0) {
+            const links = {
+                "about": "#about",
+                "services": "#services",
+                "feedback": "#Client",
+                "contact": "contact us.html"
+            };
+
+            let resultsFound = false;
+            Object.keys(links).forEach(key => {
+                if (key.includes(searchQuery)) {
+                    resultsFound = true;
+                    const linkElement = document.createElement('a');
+                    linkElement.href = links[key];
+                    linkElement.textContent = `Go to ${key.charAt(0).toUpperCase() + key.slice(1)}`;
+                    resultsContainer.appendChild(linkElement);
+                }
+            });
+
+            resultsContainer.style.display = resultsFound ? 'block' : 'none';
+        } else {
+            resultsContainer.style.display = 'none';
+        }
+    });
+
+    // Hide results on scroll
+    window.addEventListener('scroll', function() {
+        resultsContainer.style.display = 'none';
+    });
+
+    // Hide results when clicking outside the search bar
+    document.addEventListener('click', function(event) {
+        if (!document.querySelector('.search-container').contains(event.target)) {
+            resultsContainer.style.display = 'none';
+        }
+    });
+});
+
+
+</script>
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maitre Ahmed Machouch</title>
+    
+</head>
+<body>
+    <header>
+        
+      <nav class="navbar" id="Homepage">
+
+        <div class="menu">
+            <ul class="nav-links">
+                <li><a class="btn2" href="#about">About</a></li>
+                <li><a class="btn2" href="#services">Services</a></li>
+                <li><a class="btn2" href="#Client">Feedback</a></li>
+                <li><a class="btn2" href="contact us.html">Contact</a></li>
+            </ul>
+            <div class="search-container">
+              <input type="text" placeholder="Search..." id="navbar-search">
+              <button  onclick="performSearch()">
+                  <img src="search.png" alt="Search" id="search-logo">
+              </button>
+              <div id="search-results" class="search-results"></div>
+          </div>
+          
+        </div>
+    </nav>
+    
+    
+    </nav>
+    <div class="hero-section">
+        <p class="respons"><br>WITH GREAT POWER</p>
+        <p class="respons">COMES GREAT RESPONSABILITY</p>
+        <p class="respons">AHMED MACHOUCH <br>
+            <a href="contact us.html" class="btn">Contact Us</a>
+            <br></br>
+        </p>
+    </div>
+    
+    </header>
+
+    <section id="about" class="about-us">
+        
+            <h1 class="content2"><center>WHAT WE DO <br></br></center></h1>
+        
+            <div class="container">
+              <div class="box"  >
+                <center><img src="image1.png" alt="Image 1"></center>
+                <p class="content">T I M E <br> E F F I C I E N C Y</p>
+              </div>
+              <div class="box">
+                <center> <img src="image2.png" alt="Image 2"></center>
+                <p class="content">S T R O N G <br> A D V O C A C Y</p>
+              </div>
+              <div class="box">
+                <center> <img src="image3.png" alt="Image 3"></center>
+                <p class="content">P R O V I D I N G <br> L E G A L   A D V I C E</p>
+              </div>
+            </div>
+        
+        
+    </section>
+    <section class="heady">
+      <h1 class="heady" style="color: whitesmoke;"></h1>
+      <h2 class="services-title" id="services">OUR SERVICES</h2>
+      <div class="services-section">
+  
+     
+  
+          <div class="service">
+              <img src="trusted.jpg" alt="Service 1">
+              <h3 class="parag2">Your Trusted Advocate</h3>
+              <p class="parag">Your dedicated legal partner. With a commitment to personalized<br>service and unwavering dedication.</p>
+              <a class="btn" href="service num 1.html">Learn More</a>
+          </div>
+  
+          <div class="service">
+              <img src="service2.png" alt="Service 2" href="service num 2.html">
+              <h3 class="parag2">Protecting Your Future</h3>
+              <p class="parag">Where your future is our top priority. As your dedicated <br>legal representative.</p>
+              <a class="btn" href="service num 2.html">Learn More</a>
+          </div>
+      </div>
+  </section>
+  
+
+    <section id="Client" class="pads">
+  <center>
+    <br  >
+    <section id="Client" class="pads">
+        <div class="carousel">
+            <div class="carousel-images">
+              <img src="8.jpg" alt="Image 1">
+              <img src="14.jpg" alt="Image 2">
+              <img src="16.jpg" alt="Image 3">
+            </div>
+            <button class="Fleche" id="prevBtn">←</button>
+  <button class="Fleche" id="nextBtn">→</button>
+          </div>
+        </center>
+  <br >        
+
+</section>
+
+
+<div id="chat">
+  <div id="chat-header">
+    <div id="header-content">
+      <div id="status-indicator"></div>
+      <span id="lawyer-name">Lawyer</span>
+    </div>
+      <button id="minimize-button">&#x2014;</button>
+    
+   
+  </div>
+  <div id="chat-body" style="display: none;">
+    <div id="chat-messages"></div>
+    <div id="name-input-container" style="display: block;">
+      <input type="text" id="name-input" placeholder="Enter your name">
+      <button class="btn3" id="name-submit-button">Submit</button>
+    </div>
+    <div id="message-input-container" style="display: none;">
+      <button class="btn3" id="send-button">&#x1F4E8;</button>
+      <input type="text" id="message-input" placeholder="Type your message...">
+      
+    </div>
+  </div>
+</div>
+
+
+  
+
+
+   
+<footer class="footer">
+  <div class="content">
+    <div class="contact">
+      <i class="fas fa-phone"></i>
+      <p style="color: whitesmoke;">1234 Street Name, City, Country                              </p>
+    </div>
+    <div class="address">
+      <i class="fas fa-map-marker-alt"></i>
+      <p style="color: whitesmoke;">            +216 123 4567                                                         </p>
+    </div>
+    <div class="social-icons">
+      <!-- Replace # with your actual image paths -->
+      <a href="https://www.facebook.com"><img class="fb-image" src="facebook_logo.png" alt="Facebook"></a>
+      <a href="https://www.twitter.com"><img class="fb-image" src="twitter_logo.png" alt="Twitter"></a>
+      <a href="https://www.instagram.com"><img class="fb-image" src="instagram_logo.png" alt="Instagram"></a>
+    </div>
+  </div>
+  <div class="sub-footer">
+    <p>                              &copy;2024</p>
+  </div>
+</footer>
+
+    
+</body>
+<style>
+.search-results {
+    position: absolute;
+    top: 100%;               /* Positions the div right below the search bar */
+    left: 0;                 /* Aligns the div to the left edge of the search container */
+    width: calc(100% - 20px); /* Adjusts the width to fit within the container */
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-radius: 0 0 5px 5px;
+    display: none;           /* Initially hide the search results */
+    z-index: 1001;           /* Ensure the results appear on top of other content */
+}
+
+
+.search-results a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px solid #ccc;
+}
+
+.search-results a:last-child {
+    border-bottom: none;
+}
+
+.search-results a:hover {
+    background-color: #f8f8f8;
+}
+
+  .services-title {
+    text-align: center;
+    font-size: 24px; /* Adjust size as needed */
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px; 
+    margin-left: 50px;
+    color: #FFF; /* Adjust color as needed */
+}
+
+ 
+  .fb-image {
+    max-width: 40px; 
+    max-height: 40px; 
+}
+    .Fleche
+    {
+        background-color: rgba(0, 0, 0, 0.5);
+        font-size: 20px;
+        font-weight: 800;
+        
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+                             
+    }
+    .pads{
+        
+        margin: auto;
+       background-color: #ffe4bc;
+    }
+
+  
+  .footer {
+    background-color: rgb(255, 255, 255)fff;
+    color: #fff;
+   
+    padding: 40px 20px;
+  }
+  .footer .content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center; /* Ensure vertical alignment */
+    flex-wrap: wrap;
+    border-bottom: 1px solid #444; /* Added line */
+  }
+  .footer .content div {
+    margin: 10px;
+    padding: 20px;
+    border-right: 1px solid #ffffff; /* Added line */
+  
+  }
+  .footer .content div:last-child {
+    border-right: none; /* No border for the last element */
+  }
+  .footer .social-icons {
+    display: flex;
+
+  }
+  .footer .social-icons a {
+    display: inline-block; /* Wrap each icon in a block */
+    width: 30px; /* Set a fixed width */
+    height: 30px; /* Set a fixed height */
+    background-size: cover; /* Ensure the image covers the area */
+    margin: 0 15px; /* Increased spacing */
+    transition: transform 0.3s ease;
+  }
+  .footer .social-icons a:hover {
+    transform: scale(1.1); /* Zoom effect on hover */
+  }
+  .sub-footer {
+    background-color: #000000; /* Darker sub-footer */
+    padding: 20px;
+    font-size: 0.8em;
+  }
+
+.number-logo {
+    background-color: #fff; /* Number logo background color */
+    color: #333; /* Number logo text color */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.social-icon {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    margin-left: 10px;
+}
+
+.facebook {
+    background-image: url('facebook_logo.png');
+}
+
+.instagram {
+    background-image: url('instagram_logo.png');
+}
+
+.twitter {
+    background-image: url('twitter_logo.png');
+}
+
+.social-icon:hover {
+    opacity: 0.7; /* Decrease opacity on hover */
+}
+
+ 
+
+    .heady{
+      
+        font-size: 35px;
+        color: #FFFFFF;
+      background-color: #192024;
+      font-family: "Open Sans", sans-serif;
+      font-size: 40px;
+    font-weight: 300;
+    font-style: normal;
+    text-transform: uppercase;
+    text-decoration: none;
+    
+    text-indent: 0px;
+    }
+
+    .carousel {
+  position: relative;
+  width: 700px; /* Adjust as needed */
+  overflow: hidden;
+}
+
+.carousel-images {
+  display: flex;
+  
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-images img {
+  width: 100%;
+  height: auto;
+}
+
+
+#prevBtn {
+  left: 10px;
+}
+
+#nextBtn {
+  right: 10px;
+}
+
+
+
+#prevBtn {
+  left: 10px;
+}
+
+#nextBtn {
+  right: 10px;
+}
+
+
+  /*  .button {
+        background-color: rgba(18,27,34,255); 
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        border-radius: 12px;
+    }
+    .button:hover {
+        background-color: #4566a0;
+    }
+    .button.selected {
+        background-color: grey;
+    }
+    .image-container {
+        position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            right: 1px;
+            left: 80px
+        opacity: 0;
+            transition: opacity 0.5s ease;
+            
+    }
+    .image-container.active {
+        opacity: 1;
+        }
+        .image-gallery-container {
+    position: relative; 
+    margin: 0 auto; 
+    position: relative; 
+            text-align: center;
+}
+*/
+.parag{
+ /* Font */
+font-family: "Open Sans", sans-serif;
+font-weight: 300;
+font-style: normal;
+font-size: 14px;
+
+
+color: #FFFFFF; /* White color */
+
+
+
+
+
+/* Decoration */
+text-decoration: none; 
+text-align: center; 
+text-indent: 0px; 
+}
+
+.parag2{
+    color:#e2e2e2;
+    font-family: "Open Sans", sans-serif;
+      font-size: 20px;
+    font-weight: 200;
+    font-style: normal;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    text-indent: 0px;
+    
+}
+
+
+
+  
+
+  
+.services-section {
+    display: flex;
+    justify-content: space-between;
+   
+    background-color: #192024;
+    margin-left: 120px;
+    
+    margin-right: 150px;
+  }
+  
+  .service {
+    
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:100px;
+  
+    height: auto;
+    width: auto; 
+}
+.service img {
+    width: 300px;
+    max-width: 800px; /* Adjust image width */
+    border-radius: 50%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.5s ease;
+  }
+  
+  .service h3, .service p, .service button {
+    margin-top: 10px;
+  }
+
+ .service img:hover {
+  transform: scale(1.1);
+    opacity: 0.7;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+
+
+.service p {
+  margin-bottom: 10px;
+}
+
+
+.service p {
+  margin-bottom: 10px;
+}
+
+            
+
+
+.content2{
+   
+    color: #676770;
+    
+    font-family: "Open Sans", sans-serif;
+    font-size: 35px;
+    font-weight: 700;
+    font-style: normal;
+    text-transform: uppercase;
+    text-decoration: none solid rgb(103, 103, 112);
+    text-align: center;
+    text-indent: 0px;
+  
+}
+    .content {
+    
+     
+     color: #676770;
+    
+    font-family: "Open Sans", sans-serif;
+    font-size: 19.65px;
+    font-weight: 700;
+    font-style: normal;
+    text-transform: uppercase;
+    text-decoration: none solid rgb(103, 103, 112);
+    text-align: center;
+    text-indent: 0px;
+}
+
+.menu {
+    display: flex;
+    width: 100%;
+    justify-content: space-between; /* This aligns the nav links and search container on opposite ends */
+    align-items: center;
+}
+.menu-button {
+    font-size: 30px; /* Increase the font size for the hamburger icon */
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: whitesmoke; /* Change color of the hamburger icon */
+}
+
+.menu-content {
+    display: block;
+    position: fixed;
+    top: 80px; /* Adjust top position to accommodate the button size */
+    right: -10px; /* Adjust right position for better placement */
+    background-color: rgb(0, 0, 77) ; /* Change background color */
+    min-width: 220px; /* Increased width for better design */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Adjust box shadow for design */
+    z-index: 1;
+    opacity: 0; /* Start with opacity 0 */
+    transform: translateX(100%);
+    transition: transform 0.5s ease, opacity 0.5s ease; /* Transition for transform and opacity */
+    border-radius: 10px; /* Add border-radius for smoother corners */
+}
+
+.menu.open .menu-content {
+    opacity: 1; /* Change opacity to 1 when menu is open */
+    transform: translateX(0);
+}
+
+.menu-content ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu-content a {
+    color: whitesmoke; /* Change color of menu links */
+    padding: 12px 20px; /* Increase padding for better spacing */
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease; /* Add transition for background color */
+}
+
+.menu-content a:hover {
+    background-color: #0018f0; /* Change background color on hover */
+}
+
+.menu-content a.active {
+    background-color: #0055a5; /* Change background color for active link */
+    color: #fff; /* Change text color for active link */
+}
+
+.menu-content a.active:hover {
+    background-color: #0055a5; /* Keep background color consistent for active link on hover */
+}
+
+
+
+
+    </style>
+</head>
+<body>
+
+
+
+
+<style>
+
+  header
+    {
+        font-family: "Roboto", Arial, sans-serif;
+     
+     font-weight: bold;
+
+    }
+    h1
+    {
+        font-family: "Roboto", Arial, sans-serif;
+     
+     font-weight: bold;
+
+    }
+    p
+    {
+        font-family: "Roboto", Arial, sans-serif;
+     
+     font-weight: bold;
+     
+    }
+    /* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-right: 900px;
+    position: relative; /* Ensures the positioning context is correct */
+}
+
+#navbar-search {
+    padding: 8px;
+    font-size: 16px;
+    border: 2px solid white;
+    background-color: transparent;
+    color: white;
+    border-radius: 5px;
+    width: 0;
+    cursor: pointer;
+    transition: width 0.8s ease, opacity 0.8s ease;
+    opacity: 0;
+}
+
+.search-container button {
+    padding: 8px 20px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.search-container button img {
+    height: 40px; /* Adjust based on the size of your logo */
+    transition: transform 0.6s ease;
+}
+
+.search-container button:hover img {
+    transform: rotateY(360deg); /* Backflip animation */
+}
+
+.search-container:hover #navbar-search,
+#navbar-search:focus {
+    width: 300px;
+    opacity: 1;
+    cursor: text;
+}
+
+#navbar-search:focus {
+    border-color: #1a237e;
+}
+
+.search-container button::before {
+  
+    margin-right: 5px;
+    font-size: 16px;
+}
+
+
+.search-container:hover #navbar-search,
+#navbar-search:focus {
+    width: 300px; /* Expand the width on hover or focus */
+    opacity: 1; /* Make input fully visible */
+    cursor: text; /* Change cursor to text input on hover */
+}
+
+#navbar-search:focus {
+    border-color: #1a237e; /* Dark blue border when focused */
+}
+
+.nav-links {
+    display: flex;
+    list-style-type: none; /* Removes bullets */
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Navbar Styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 77, 1);
+    color: white;
+    transition: top 0.6s ease, background-color 0.6s ease; /* Smooth transition for top and background-color */
+    z-index: 1000;
+}
+
+
+.navbar.hidden {
+    top: -100px; /* Move the navbar above the viewport to hide */
+}
+
+.nav-links li {
+    margin: 0 10px;
+}
+
+.nav-links a {
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+
+/* Hero Section */
+.hero-section {
+ 
+    background-image:url('lawyer-keywords.jpg');
+    background-repeat: no-repeat;
+    color: white;
+    text-align: center;
+    padding: 300px 20px;
+    background-size: cover;
+   
+
+    
+}
+.respons
+{    
+    
+        font-size: 35px;
+        color: #FFFFFF;
+        background-color: rgba(0, 0, 0, 0.5);
+      font-family: "Open Sans", sans-serif;
+      font-size: 40px;
+    font-weight: 300;
+    font-style: normal;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    text-indent: 0px;
+    font-size: 35px;
+}
+
+.btn {
+    color: whitesmoke;
+    background-color: rgba(255, 255, 255, 0);
+    text-decoration: none;
+    padding: 15px 30px;
+    display: inline-block;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: 2px solid white; /* Set initial border color to white */
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Add color transition */
+    font-size: 15px;
+}
+
+.btn:hover {
+    color: #007bff; /* Change text color on hover */
+    border-color: #007bff; /* Change border color on hover */
+}
+
+
+.btn2 {
+    background-color: rgb(0, 0, 77);
+    color: white;
+    text-decoration: none;
+    padding: 2px 15px;
+    display: inline-block;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 2px solid transparent; /* Transparent border to maintain dimensions */
+    transition: background-color 0.3s, border-color 0.3s; /* Add border-color transition */
+    font-size: 18px;
+}
+
+.btn2:hover {
+    
+  background-color: rgb(0, 0, 100);
+}
+/* About Us */
+.about-us {
+    padding: 80px;
+    background-color: rgba(255, 255, 255, 0.1);
+    
+    
+    
+  
+ 
+}
+.container {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .box {
+    width: 300px;
+    background-color: rgba(244, 194, 116, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .box img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    transition: transform 0.5s ease;
+    
+  }
+  .box img:hover{
+    transform: scale(1.1);
+    opacity: 0.7;
+    
+  }
+
+
+
+button {
+    background-color: #0055a5;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+
+
+</style>
+<script>
+/*
+
+document.addEventListener('DOMContentLoaded', function() {
+    var menuButton = document.querySelector('.menu-button');
+    var menu = document.querySelector('.menu');
+
+    menuButton.addEventListener('click', function() {
+        menu.classList.toggle('open');
+    });
+
+    // Close the menu if clicked outside of it
+    document.addEventListener('click', function(event) {
+        var isClickInsideMenu = menu.contains(event.target);
+        var isClickInsideMenuButton = menuButton.contains(event.target);
+        if (!isClickInsideMenu && !isClickInsideMenuButton) {
+            menu.classList.remove('open');
+        }
+    });
+});
+*/
+
+function toggleImage(imageNumber) {
+        // Hide all images
+        var images = document.querySelectorAll('.image-container');
+        images.forEach(function(image) {
+            image.classList.remove('active');
+        });
+
+        // Show the selected image
+        var selectedImage = document.getElementById('image' + imageNumber);
+        selectedImage.classList.add('active');
+
+        // Remove 'selected' class from all buttons
+        var buttons = document.querySelectorAll('.button');
+        buttons.forEach(function(button) {
+            button.classList.remove('selected');
+        });
+
+        // Add 'selected' class to the clicked button
+        var clickedButton = document.querySelector('.button:nth-child(' + imageNumber + ')');
+        clickedButton.classList.add('selected');
+    }
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  const carouselImages = document.querySelector('.carousel-images');
+  const images = document.querySelectorAll('.carousel-images img');
+  const totalImages = images.length;
+  let currentIndex = 0;
+
+  document.getElementById('nextBtn').addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % totalImages;
+    updateCarousel();
+  });
+
+  document.getElementById('prevBtn').addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+    updateCarousel();
+  });
+
+  function updateCarousel() {
+    carouselImages.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
+});
+
+
+
+
+  
+</script>
+</html>
+     <!--   <button class="menu-button">☰</button>
+                <div class="menu-content">
+                 <ul class="nav-links">
+                            <li><a href="#about">What We Do</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#Client">Client's Feedback</a></li>
+                            <li><a href="file:///D:/Downloads/moviees%20of%20today/contact%20us.html" onclick="loadPage('contact')">Contact Us</a></li>
+                        </ul>
+                </div>
+            </div> -->
+
+            <style>
+              
+
+#send-button {
+    background-color: rgba(255, 255, 255, 0);
+    color: whitesmoke;
+  
+  text-decoration: none;
+  padding: 8px;
+  border-radius: 15px;
+  border: 2px solid white;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  font-size: 12px;
+  
+  margin-left: 5px;
+ 
+  align-self: baseline; 
+}
+
+#send-button:hover {
+  background-color: #3949ab;
+}
+  .btn3 {
+    color: whitesmoke;
+    background-color: rgba(255, 255, 255, 0);
+    text-decoration: none;
+    padding: 10px 20px;
+    display: inline-block;
+    margin-top: 20px;
+    border-radius: 15px;
+    border: 2px solid white; /* Set initial border color to white */
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Add color transition */
+    font-size: 10px;
+}
+
+.btn3:hover {
+    color: #007bff; /* Change text color on hover */
+    border-color: #007bff; /* Change border color on hover */
+}
+  
+#chat-header {
+    background-color: #1a237e;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  
+  #chat {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 350px;
+    background-color:  #192024;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  #status-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: green;
+    margin-right: 10px;
+  }
+  
+  #header-content {
+    display: flex;
+    align-items: center;
+  }
+  
+  #chat-body {
+    padding: 15px;
+  }
+  
+
+
+  #chat-messages {
+    height: 240px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+
+.message {
+    background-color: #1a237e; /* Dark blue background */
+    color: white; /* White text */
+    padding: 15px;
+    margin-bottom: 8px;
+    border-radius: 20px; /* Adjusted for more rounded corners if preferred */
+    max-width: 70%;
+    border: none; /* Optional: remove if you want no borders */
+    word-wrap: break-word; /* Ensures text wraps within the bubble */
+}
+  
+  #name-input
+  {
+    background-color: rgba(255, 255, 255, 0);
+    width: calc(100% - 120px); /* Adjust width as needed */
+  padding: 8px; /* Adjust padding as needed */
+  font-size: 12px; /* Adjust font size as needed */
+  border-radius: 10px;
+  border: 2px solid white;
+  width: 66%;
+  margin-right: 5px;
+color:white;
+}
+
+#name-input-container
+{
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+  
+  #message-input {
+    color: whitesmoke;
+  background-color: rgba(255, 255, 255, 0);
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid white;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  font-size: 14px;
+  flex: 1; 
+  margin-right: 5px;
+  
+  
+}
+
+#message-input-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    margin-top: 15px;
+
+}
+#message-input:focus {
+  border-color: #1a237e; /* Change border color on focus */
+}
+  
+  #minimize-button {
+    position: absolute; /* Position the button absolutely */
+ 
+  right: 5px; /* Adjust right position as needed */
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    color: white;
+  margin: 15px;
+  } 
+  
+  #minimize-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+
+
+
+/* Styles for tablets */
+@media only screen and (max-width: 767px) {
+    .services-section {
+        flex-direction: column; /* Arrange services vertically on smaller screens */
+        margin-left: 30px; /* Adjust margin for smaller screens */
+        margin-right: 30px; /* Adjust margin for smaller screens */
+    }
+  
+    .service {
+        padding: 30px; /* Decrease padding for smaller screens */
+        margin-left: 0; /* Reset margin for smaller screens */
+        margin-right: 0; /* Reset margin for smaller screens */
+        text-align: center; /* Center-align service content */
+    }
+  
+    .service img {
+        width: 80%; /* Reduce image width for smaller screens */
+        max-width: none; /* Remove max-width for smaller screens */
+        border-radius: 0; /* Remove border radius for smaller screens */
+    }
+}
+
+/* Styles for mobile devices */
+@media only screen and (max-width: 480px) {
+    .services-section {
+        margin-left: 10px; /* Adjust margin for very small screens */
+        margin-right: 10px; /* Adjust margin for very small screens */
+    }
+  
+    .service {
+        padding: 20px; /* Decrease padding for very small screens */
+    }
+}
+
+            </style>
+
+            
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+   const chatHeader = document.getElementById("chat-header");
+   const chatBody = document.getElementById("chat-body");
+   const minimizeButton = document.getElementById("minimize-button");
+   const nameInput = document.getElementById("name-input");
+   const nameSubmitButton = document.getElementById("name-submit-button");
+   const messageInput = document.getElementById("message-input");
+   const sendButton = document.getElementById("send-button");
+   const chatMessages = document.getElementById("chat-messages");
+   const statusIndicator = document.getElementById("status-indicator");
+ 
+   let userName = "";
+ 
+   // Toggle chat body visibility
+   chatHeader.addEventListener("click", function() {
+     chatBody.style.display = chatBody.style.display === "none" ? "block" : "none";
+   });
+ 
+   // Minimize chat
+   minimizeButton.addEventListener("click", function(event) {
+     event.stopPropagation();
+     chatBody.style.display = "none";
+   });
+ 
+   // Submit name
+   nameSubmitButton.addEventListener("click", function() {
+     const name = nameInput.value.trim();
+     if (name !== "") {
+       userName = name;
+       document.getElementById("name-input-container").style.display = "none";
+       document.getElementById("message-input-container").style.display = "block";
+     }
+   });
+
+
+
+   function isGreeting(message) {
+    // Using a regular expression to match various informal greetings.
+    return /hello|hi|hey|he+y|he+i+/i.test(message);
+}
+
+function getLawyerResponse(message) {
+    const lowerCaseMessage = message.toLowerCase();
+
+    // Handling greetings with a separate function for clarity and reusability
+    if (isGreeting(lowerCaseMessage)) {
+        return "Hello! How can I assist you today?";
+    }
+
+    switch (true) {
+        case lowerCaseMessage.includes("help"):
+            return "What do you need help with? You can ask me about legal services, fees, or specific legal issues!";
+        case lowerCaseMessage.includes("appointment"):
+            return "I can help you schedule an appointment. Which day and time would you prefer?";
+            case lowerCaseMessage.includes("need you"):
+            return "Sure how can I help you?";
+      
+        case lowerCaseMessage.includes("fee") || lowerCaseMessage.includes("cost"):
+            return "Our fees vary depending on the case and its complexity. Would you like to speak with a lawyer for a detailed quote?";
+        case lowerCaseMessage.includes("thank you") || lowerCaseMessage.includes("thanks"):
+            return "You're welcome! If you have any more questions, feel free to ask.";
+            case lowerCaseMessage.includes("nice"):
+            return "I'm glad you're happy! feel free to ask whatever you want i'm here to assist you!";
+            case lowerCaseMessage.includes("services") || lowerCaseMessage.includes("service")|| lowerCaseMessage.includes("serv"):
+            return `We offer a wide range of legal services. <button onclick="location.href='#services'">View Services</button>`;
+            case lowerCaseMessage.includes("contact") || lowerCaseMessage.includes("contacts")|| lowerCaseMessage.includes("cont"):
+            return `You can contact us <button onclick="location.href='contact us.html'">Click here</button>`;
+        case lowerCaseMessage.includes("divorce"):
+            return "We handle divorce cases sensitively and professionally. Here's a link to more information: [Divorce Services](http://example.com/divorce)";
+        case lowerCaseMessage.includes("traffic"):
+            return "Traffic violations can be tricky. We can help you navigate these. More information can be found here: [Traffic Law](http://example.com/traffic)";
+        case lowerCaseMessage.includes("corporate"):
+            return "Our corporate legal services are comprehensive, covering incorporation, contracts, and disputes. Learn more: [Corporate Law](http://example.com/corporate)";
+        case lowerCaseMessage.includes("will") || lowerCaseMessage.includes("estate"):
+            return "Planning for the future is important. We offer services in wills and estate planning. Details here: [Wills and Estates](http://example.com/wills)";
+        default:
+            return "I'm not sure how to answer that. Would you like to speak with one of our lawyers directly?";
+    }
+}
+
+
+function sendMessage() {
+        const userMessage = messageInput.value.trim();
+        if (userMessage !== "") {
+            // User's message
+            const userMessageElement = document.createElement("div");
+            userMessageElement.classList.add("message");
+            userMessageElement.textContent = `${userName}: ${userMessage}`;
+            chatMessages.appendChild(userMessageElement);
+
+            // Robot's response
+            const robotResponse = getLawyerResponse(userMessage);
+            const robotMessageElement = document.createElement("div");
+            robotMessageElement.classList.add("message");
+            robotMessageElement.innerHTML = `Robot Lawyer: ${robotResponse}`;
+            chatMessages.appendChild(robotMessageElement);
+
+            messageInput.value = "";
+                    // Clear the input field
+                    messageInput.value = "";
+
+// Scroll to the latest message
+chatMessages.scrollTop = chatMessages.scrollHeight;
+
+        }}
+
+
+   // Event listeners
+   sendButton.addEventListener("click", sendMessage);
+   messageInput.addEventListener("keypress", function(event) {
+     if (event.key === "Enter") {
+       sendMessage();
+     }
+   });
+ 
+   // Initialize
+   document.getElementById("name-input-container").style.display = "block";
+ });
+ 
+   </script>
